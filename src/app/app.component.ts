@@ -11,4 +11,5 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'my-angular';
+  name = "Pham Dinh Truong";
 }
