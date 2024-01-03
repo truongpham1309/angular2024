@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import axios from 'axios';
+
 
 @Component({
   selector: 'app-products',
