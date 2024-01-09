@@ -1,35 +1,58 @@
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './components/client/products/products.component';
 import { HomePageComponent } from './components/client/home-page/home-page.component';
 import { NotFoundPageComponent } from './components/client/not-found-page/not-found-page.component';
 import { LoginPageComponent } from './components/client/login-page/login-page.component';
 import { ProductsDetailPageComponent } from './components/client/products-detail-page/products-detail-page.component';
+import { LayoutsComponent } from './components/layouts/layouts.component';
+import { AdminLayoutComponent } from './components/admin/admin-layout/admin-layout.component';
+import { AdminHomePageComponent } from './components/admin/admin-home-page/admin-home-page.component';
 
 export const routes: Routes = [
+
+    {
+        path: "admin",
+        component: AdminLayoutComponent,
+        children: [
+            {
+                path: '',
+                component: AdminHomePageComponent,
+            }
+        ]
+    },
     {
         path: "",
-        redirectTo: "/home",
-        pathMatch: "full",
+        component: LayoutsComponent,
+        children: [
+            {
+                    path: "",
+                    redirectTo: "/home",
+                    pathMatch: "full",
+                },
+                {
+                    path: 'home',
+                    component: HomePageComponent,
+            
+                },
+                {
+                    path: "products",
+                    component: ProductsComponent,
+                },
+                {
+                    path: "login",
+                    component: LoginPageComponent,
+                },
+                {
+                    path: "product_detail/:idPr",
+                    component: ProductsDetailPageComponent,
+                },
+                {
+                    path: "**",
+                    component: NotFoundPageComponent,
+                }
+        ]
     },
-    {
-        path: 'home',
-        component: HomePageComponent,
-
-    },
-    {
-        path: "products",
-        component: ProductsComponent,
-    },
-    {
-        path: "login",
-        component: LoginPageComponent,
-    },
-    {
-        path: "product_detail/:idPr",
-        component: ProductsDetailPageComponent,
-    },
-    {
-        path: "**",
-        component: NotFoundPageComponent,
-    }
+    
 ];
+
+
