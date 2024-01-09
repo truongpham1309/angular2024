@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../types/products';
-import { ProductsService } from '../../services/products.service';
+import { Product } from '../../../types/products';
+import { ProductsService } from '../../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
+import { ProductsRateComponent } from '../products-rate/products-rate.component';
 
 @Component({
   selector: 'app-products-detail-page',
   standalone: true,
-  imports: [],
+  imports: [ProductsRateComponent],
   templateUrl: './products-detail-page.component.html',
   styleUrl: './products-detail-page.component.css'
 })
