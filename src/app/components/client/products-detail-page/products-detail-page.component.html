@@ -17,7 +17,8 @@
                         <h2 class="max-w-xl mt-2 mb-6 text-gray-700 text-xl font-bold md:text-4xl">
                             {{product.title}}
                         </h2>
-                        <p>{{product.category}}</p>
+                        <app-products-rate [ratePr]="product.rating.rate"></app-products-rate>
+                        <p class="my-3">{{product.category}}</p>
                         <!-- Rating -->
                         <p class="max-w-md mb-8 text-gray-700 dark:text-gray-500">
                             {{product.description}}
@@ -25,7 +26,7 @@
                         <div class="p-4 mb-8 border border-gray-300">
                             <h2 class="mb-4 text-xl font-semibold dark:text-gray-400">
                                 Real time
-                                <span class="px-2 bg-blue-500 text-gray-50">200</span>
+                                <span class="px-2 bg-blue-500 text-gray-50">{{product.rating.count}}</span>
                                 visitors right now!
                             </h2>
                             <div class="mb-1 text-xs font-medium text-gray-700">
@@ -36,7 +37,7 @@
                             </div>
                         </div>
                         <p class="inline-block text-2xl font-semibold text-gray-700">
-                            <span>{{product.price}}</span>
+                            <span>${{product.price}}</span>
                         </p>
                     </div>
                     <div class="flex flex-wrap items-center ">

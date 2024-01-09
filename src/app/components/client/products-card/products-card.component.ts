@@ -1,12 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../types/products';
+import { Product } from '../../../types/products';
+import { ProductsRateComponent } from '../products-rate/products-rate.component';
 
 @Component({
   selector: 'app-products-card',
   standalone: true,
-  imports: [],
+  imports: [ProductsRateComponent],
   templateUrl: './products-card.component.html',
   styleUrl: './products-card.component.css'
+  
 })
 export class ProductsCardComponent {
   @Input() product: Product = {

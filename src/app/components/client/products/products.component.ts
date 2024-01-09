@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../../services/products.service';
-import { Product } from '../../types/products';
+import { ProductsService } from '../../../services/products.service';
+import { Product } from '../../../types/products';
 import { ProductsCardComponent } from '../products-card/products-card.component';
 import { NgFor } from '@angular/common';
 
