@@ -18,7 +18,7 @@ export class HeaderComponent {
     { id: 5, name: "Login", slug: "/login" },
   ];
 
-  navigationHiddenOrShow: boolean = false;
+  navigationHiddenOrShow: boolean = true;
 
   onClickMenu(): void {
     this.navigationHiddenOrShow = !this.navigationHiddenOrShow;
