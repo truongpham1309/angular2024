@@ -15,9 +15,7 @@ export class ProductsRateComponent implements OnInit{
 
   rates: number[] = [1, 2, 3, 4, 5];
 
-  constructor() {
-
-  }
+  constructor() {}
   ngOnInit(): void {
     this.ratePr = Math.round(this.rateInit);
   }

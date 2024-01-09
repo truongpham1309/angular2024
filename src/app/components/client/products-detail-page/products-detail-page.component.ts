@@ -13,20 +13,7 @@ import { ProductsRateComponent } from '../products-rate/products-rate.component'
 })
 export class ProductsDetailPageComponent implements OnInit {
   productID: number = 0;
-  constructor(private ProductService: ProductsService, private route: ActivatedRoute) { }
-  ngOnInit(): void {
 
-
-
-    this.route.paramMap.subscribe(params => {
-      const idPr = params.get('idPr');
-      this.productID = Number(idPr);
-    });
-
-    this.ProductService.getDetailProduct(this.productID).subscribe(data => {
-      this.product = data;
-    })
-  }
   product: Product = {
     id: 0,
     title: "",
@@ -40,7 +27,17 @@ export class ProductsDetailPageComponent implements OnInit {
     }
   }
 
+  constructor(private ProductService: ProductsService, private route: ActivatedRoute) { }
+  ngOnInit(): void {
 
+    this.route.paramMap.subscribe(params => {
+      const idPr = params.get('idPr');
+      this.productID = Number(idPr);
+    });
 
+    this.ProductService.getDetailProduct(this.productID).subscribe(data => {
+      this.product = data;
+    })
+  }
 
 }
