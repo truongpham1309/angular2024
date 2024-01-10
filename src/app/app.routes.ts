@@ -21,38 +21,38 @@ export const routes: Routes = [
         ]
     },
     {
+        path: "login",
+        component: LoginPageComponent,
+    },
+    {
         path: "",
         component: LayoutsComponent,
         children: [
             {
-                    path: "",
-                    redirectTo: "/home",
-                    pathMatch: "full",
-                },
-                {
-                    path: 'home',
-                    component: HomePageComponent,
-            
-                },
-                {
-                    path: "products",
-                    component: ProductsComponent,
-                },
-                {
-                    path: "login",
-                    component: LoginPageComponent,
-                },
-                {
-                    path: "product_detail/:idPr",
-                    component: ProductsDetailPageComponent,
-                },
-                {
-                    path: "**",
-                    component: NotFoundPageComponent,
-                }
+                path: "",
+                redirectTo: "/home",
+                pathMatch: "full",
+            },
+            {
+                path: 'home',
+                component: HomePageComponent,
+
+            },
+            {
+                path: "products",
+                component: ProductsComponent,
+            },
+            {
+                path: "product_detail/:idPr",
+                component: ProductsDetailPageComponent,
+            },
+            {
+                path: "**",
+                component: NotFoundPageComponent,
+            }
         ]
     },
-    
+
 ];
 
 
