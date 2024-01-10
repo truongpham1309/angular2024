@@ -20,11 +20,11 @@
                         <app-products-rate [rateInit]="product.rating.rate"></app-products-rate>
                         <p class="my-3">{{product.category}}</p>
                         <!-- Rating -->
-                        <p class="max-w-md mb-8 text-gray-700 dark:text-gray-500">
+                        <p class="max-w-md mb-8 text-gray-700">
                             {{product.description}}
                         </p>
                         <div class="p-4 mb-8 border border-gray-300">
-                            <h2 class="mb-4 text-xl font-semibold dark:text-gray-400">
+                            <h2 class="mb-4 text-xl font-semibold ">
                                 Real time
                                 <span class="px-2 bg-blue-500 text-gray-50">{{product.rating.count}}</span>
                                 visitors right now!
@@ -49,7 +49,7 @@
                                         <span class="m-auto text-2xl font-thin">-</span>
                                     </button>
                                     <input type="number"
-                                        class="remove-arrow flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400  focus:outline-none text-md hover:text-black"
+                                        class="remove-arrow input-wrapper flex items-center w-full font-semibold text-center text-gray-700 placeholder-gray-700 bg-gray-100 outline-none dark:text-gray-400  focus:outline-none text-md hover:text-black"
                                         placeholder="1" />
                                     <button
                                         class="w-20 h-full text-gray-600 bg-gray-100 border-l rounded-r outline-none cursor-pointer dark:text-gray-400 hover:text-gray-700 hover:bg-gray-300">
@@ -89,4 +89,9 @@
             </div>
         </div>
     </div>
+    <h2 class="py-4 font-bold text-gray-800 text-center lg:text-3xl">PRODUCTS RELATED</h2>
+    <div class="mt-6 mx-5 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        <app-products-card *ngFor="let pr of productsRelated" [product]="pr"></app-products-card>
+    </div>
+
 </section>
