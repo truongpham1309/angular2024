@@ -7,6 +7,7 @@ import { ProductsDetailPageComponent } from './components/client/products-detail
 import { LayoutsComponent } from './components/layouts/layouts.component';
 import { AdminLayoutComponent } from './components/admin/admin-layout/admin-layout.component';
 import { AdminHomePageComponent } from './components/admin/admin-home-page/admin-home-page.component';
+import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 
 export const routes: Routes = [
 
@@ -16,7 +17,16 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
+                redirectTo: "/admin/dashboard",
+                pathMatch: "full"
+            },
+            {
+                path: "dashboard",
                 component: AdminHomePageComponent,
+            },
+            {
+                path: "products",
+                component: AdminProductsComponent,
             }
         ]
     },
