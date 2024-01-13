@@ -15,22 +15,19 @@ import { NgFor } from '@angular/common';
   styleUrl: './products-detail-page.component.css'
 })
 export class ProductsDetailPageComponent implements OnInit {
-  productID: number = 0;
+  productID: string = "";
 
   productsRelated: Product[] = [];
   productsAll: Product[] = [];
 
   product: Product = {
-    id: 0,
+    _id: "",
     title: "",
     image: "",
     category: "",
     description: "",
     price: 0,
-    rating: {
-      rate: 0,
-      count: 0,
-    }
+    rate: 0,
   }
 
   constructor(private ProductService: ProductsService, private route: ActivatedRoute) {
@@ -39,16 +36,16 @@ export class ProductsDetailPageComponent implements OnInit {
 
       console.log(this.productsAll);
     })
-   }
+  }
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
       const idPr = params.get('idPr');
-      this.productID = Number(idPr);
+      this.productID = String(idPr);
 
       this.getProductDetailsAndRelateProducts();
     });
-    
+
   }
 
 
@@ -61,7 +58,7 @@ export class ProductsDetailPageComponent implements OnInit {
       })
     ).subscribe(({ productData, relatedProducts }) => {
       this.product = productData;
-      this.productsRelated = relatedProducts.filter(pr => pr.id !== this.productID);
+      this.productsRelated = relatedProducts.filter(pr => pr._id !== this.productID);
     })
   }
 }

@@ -15,7 +15,7 @@ export class AdminProductsComponent implements OnInit {
 
   products: Product[] = [];
 
-  idPr: number = 0;
+  idPr: string = "";
 
   constructor(private Product: ProductsService) { }
   ngOnInit(): void {
@@ -25,12 +25,21 @@ export class AdminProductsComponent implements OnInit {
 
 
   }
-  handleRemoveProduct(id: number): void {
+  handleRemoveProduct(id: string): void {
     if (!confirm('Are you sure you want to remove?')) return;
 
+    this.Product.removeProduct([id]).subscribe(
+      () => {
+        alert('Product removed successfully.');
+        this.ngOnInit();
+        // Gọi các bước cần thiết sau khi xóa sản phẩm thành công (nếu có)
+      },
+      (error) => {
+        console.error('Error removing product:', error);
+        // Xử lý lỗi nếu cần
+      }
+    );
 
-    this.products = this.products.filter(p => p.id !== id);
-   
   }
 
 
