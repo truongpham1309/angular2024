@@ -10,10 +10,11 @@
                     <h1 class="text-2xl font-semibold">Login</h1>
                 </div>
                 <div class="divide-y divide-gray-200">
-                    <form action="">
+                    <form action="" [formGroup]="loginForm">
                         <div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                             <div class="relative">
                                 <input autocomplete="off" id="Username" name="username" type="text"
+                                    formControlName="email"
                                     class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                                     placeholder="Username address" />
                                 <label for="Username"
@@ -21,6 +22,7 @@
                             </div>
                             <div class="relative">
                                 <input autocomplete="off" id="password" name="password" type="password"
+                                    formControlName="password"
                                     class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
                                     placeholder="Password" />
                                 <label for="password"
