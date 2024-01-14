@@ -8,6 +8,7 @@ import { LayoutsComponent } from './components/layouts/layouts.component';
 import { AdminLayoutComponent } from './components/admin/admin-layout/admin-layout.component';
 import { AdminHomePageComponent } from './components/admin/admin-home-page/admin-home-page.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
+import { ProductsCreateComponent } from './components/admin/products-create/products-create.component';
 
 export const routes: Routes = [
 
@@ -27,6 +28,10 @@ export const routes: Routes = [
             {
                 path: "products",
                 component: AdminProductsComponent,
+            },
+            {
+                path: "products_create",
+                component: ProductsCreateComponent,
             }
         ]
     },

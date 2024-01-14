@@ -1,5 +1,5 @@
-<div class="font-bold text-3xl text-center">
-    <h1 class="font-bold text-center py-5 uppercase ">Products List Admin </h1>
+<div class="font-bold text-3xl text-center" toastContainer>
+    <h1 class="font-bold text-center py-5 uppercase ">Products List Admin</h1>
     <div class="relative overflow-x-auto shadow-md">
         <!-- <form>
             <label htmlFor="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">
@@ -60,7 +60,7 @@
                         </div>
                     </th>
                     <th scope="col" class="px-2 py-3 text-right">
-                        <a href="/admin/create_product"><button
+                        <a routerLink="/admin/products_create"><button
                                 class="bg-green-500 text-center mx-auto py-3 px-5 rounded-md text-white">CREATE
                                 PRODUCTS</button></a>
                     </th>
@@ -76,13 +76,13 @@
                     <td class="px-3 py-4">{{product.category}}</td>
                     <td class="px-3 py-4">${{product.price}}</td>
                     <td class="px-2 py-4 text-right flex">
-                        <a routerLink="/admin/update_product/{{product.id}}"
+                        <a routerLink="/admin/update_product/{{product._id}}"
                             class="font-medium text-white hover:underline">
                             <button class="bg-green-500 py-2 px-6 rounded-md flex">
                                 Edit
                             </button>
                         </a>
-                        <button #btnRemove data-id={{product.id}} (click)="handleRemoveProduct(product.id)"
+                        <button #btnRemove data-id={{product._id}} (click)="handleRemoveProduct(product._id)"
                             class="text-white ml-3 bg-red-500 py-2 px-6 rounded-md">
                             Remove
                         </button>
