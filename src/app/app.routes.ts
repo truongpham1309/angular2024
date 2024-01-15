@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { ProductsComponent } from './components/client/products/products.component';
 import { HomePageComponent } from './components/client/home-page/home-page.component';
 import { NotFoundPageComponent } from './components/client/not-found-page/not-found-page.component';
@@ -9,6 +9,7 @@ import { AdminLayoutComponent } from './components/admin/admin-layout/admin-layo
 import { AdminHomePageComponent } from './components/admin/admin-home-page/admin-home-page.component';
 import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { ProductsCreateComponent } from './components/admin/products-create/products-create.component';
+import { ProductEditComponent } from './components/admin/product-edit/product-edit.component';
 
 export const routes: Routes = [
 
@@ -32,6 +33,10 @@ export const routes: Routes = [
             {
                 path: "products_create",
                 component: ProductsCreateComponent,
+            },
+            {
+                path: "products_edit/:idPr",
+                component: ProductEditComponent,
             }
         ]
     },
