@@ -12,7 +12,7 @@ export class ProductsService {
 
   // private http = inject(HttpClient);
 
-  constructor(private http: HttpClient, private route: Router) {}
+  constructor(private http: HttpClient, private route: Router) { }
 
   private getHeaders(): HttpHeaders {
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTIzMGU4YmM5ZDNkNGNkOTVmMDZkOCIsImlhdCI6MTcwNTI0MTk3MCwiZXhwIjoxNzA1MzI4MzcwfQ.orXbt6Q9yqtPFzET6le8SMwmGagVYYz-TjYbCM9kc3k';  // Thay YOUR_AUTH_TOKEN bằng token thực tế của bạn
@@ -40,10 +40,19 @@ export class ProductsService {
 
   createProduct(newProduct: Omit<Product, "_id">): void {
     const options = {
-      headers: this.getHeaders(), 
+      headers: this.getHeaders(),
     }
     this.http.post<Product>(`${this.apiUrl}`, newProduct, options).subscribe(() => {
       this.route.navigate(['/admin/products'])
+    })
+  }
+
+  updateProduct(newProduct: Omit<Product, "_id">, id: string): void {
+    const options = {
+      headers: this.getHeaders(),
+    }
+    this.http.put<Product>(`${this.apiUrl}/${id}`, newProduct, options).subscribe(() => {
+      this.route.navigate(['/admin/products']);
     })
   }
 

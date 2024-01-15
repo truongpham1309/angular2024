@@ -32,6 +32,8 @@ export class ProductsCreateComponent implements OnInit {
   }
 
   handleSubmit() {
+
+    
     this.Product.createProduct(this.productCreate);
   }
 }
