@@ -15,7 +15,7 @@ export class ProductsService {
   constructor(private http: HttpClient, private route: Router) { }
 
   private getHeaders(): HttpHeaders {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTIzMGU4YmM5ZDNkNGNkOTVmMDZkOCIsImlhdCI6MTcwNTI0MTk3MCwiZXhwIjoxNzA1MzI4MzcwfQ.orXbt6Q9yqtPFzET6le8SMwmGagVYYz-TjYbCM9kc3k';  // Thay YOUR_AUTH_TOKEN bằng token thực tế của bạn
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YTIzMGU4YmM5ZDNkNGNkOTVmMDZkOCIsImlhdCI6MTcwNTM3NzkxMSwiZXhwIjoxNzA3OTY5OTExfQ.2Y3GPXMVXvQb7BQqflCDeDWXnbO4WcEX1Lx7Mz0DZOM';  // Thay YOUR_AUTH_TOKEN bằng token thực tế của bạn
     return new HttpHeaders({
       'Content-Type': 'application/json',
       'authorization': `Bearer ${token}`
