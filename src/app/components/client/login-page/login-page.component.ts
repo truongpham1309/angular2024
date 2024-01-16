@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder,ReactiveFormsModule, FormGroup, Validators } from '@angular/forms';
-import { formLogin } from '../../../types/formLogin';
 
 @Component({
   selector: 'app-login-page',

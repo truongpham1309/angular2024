@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../../services/products.service';
 import { Product } from '../../../types/products';
 import { ProductsCardComponent } from '../products-card/products-card.component';
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [ProductsCardComponent, NgFor],
+  imports: [ProductsCardComponent, CommonModule],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })

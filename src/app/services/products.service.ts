@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 })
 export class ProductsService {
   // Call API
-  private apiUrl = "http://localhost:8000/products";
+  private apiUrl2 = "http://localhost:8000/products";
+  private apiUrl = "https://65a66cb474cf4207b4effdca.mockapi.io/products";
 
   // private http = inject(HttpClient);
 
