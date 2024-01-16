@@ -5,12 +5,12 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductsRateComponent } from '../products-rate/products-rate.component';
 import { map, switchMap } from 'rxjs';
 import { ProductsCardComponent } from '../products-card/products-card.component';
-import { NgFor } from '@angular/common';
+import { CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-products-detail-page',
   standalone: true,
-  imports: [ProductsRateComponent, ProductsCardComponent, NgFor],
+  imports: [ProductsRateComponent, ProductsCardComponent, CommonModule],
   templateUrl: './products-detail-page.component.html',
   styleUrl: './products-detail-page.component.css'
 })
@@ -43,7 +43,9 @@ export class ProductsDetailPageComponent implements OnInit {
       const idPr = params.get('idPr');
       this.productID = String(idPr);
 
-      this.getProductDetailsAndRelateProducts();
+      this.ProductService.getDetailProduct(this.productID).subscribe(data => {
+        this.product = data;
+      })
     });
 
   }

@@ -1,11 +1,11 @@
-import { NgClass, NgFor } from '@angular/common';
+import { CommonModule, NgClass, NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgFor, NgClass, RouterLink],
+  imports: [ NgClass, RouterLink, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

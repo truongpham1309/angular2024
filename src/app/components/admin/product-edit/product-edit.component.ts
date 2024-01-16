@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../../types/products';
 import { ProductsService } from '../../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-edit',
   standalone: true,
-  imports: [FormsModule, NgFor, NgIf],
+  imports: [FormsModule, CommonModule],
   templateUrl: './product-edit.component.html',
   styleUrl: './product-edit.component.css'
 })
@@ -36,6 +37,8 @@ export class ProductEditComponent implements OnInit {
 
   constructor(private ProductService: ProductsService, private route: ActivatedRoute) { }
 
+  toastr = inject(ToastrService);
+
   ngOnInit(): void {
 
     this.route.paramMap.subscribe(params => {
@@ -50,9 +53,43 @@ export class ProductEditComponent implements OnInit {
     })
   }
 
+  validateFormProduct(product: Omit<Product, "_id">) {
+    let valid: boolean = false;
+    if (product.title.trim().length === 0) {
+      valid = true;
+      this.toastr.error("Title is required!");
+    }
+    if (product.description.trim().length === 0) {
+      valid = true;
+      this.toastr.error("Description is required!");
+    }
+    if (product.price <= 0) {
+      valid = true;
+      this.toastr.error("Price is greater than 0!");
+    }
+    if (product.rate <= 0 ) {
+      valid = true;
+      this.toastr.error("Rate is greater than 0!");
+    }
+    if (product.category.trim().length === 0) {
+      valid = true;
+      this.toastr.error("Category is required!");
+    }
+    if (product.image.trim().length === 0) {
+      valid = true;
+      this.toastr.error("Image is required!");
+    }
+
+    return valid;
+  }
+
   handleSubmit() {
-    console.log(this.productUpdate);
+
     const { title, price, image, category, description, rate } = this.productUpdate;
+    if (this.validateFormProduct({ title, price, image, category, description, rate })) {
+      this.ngOnInit();
+      return;
+    }
     this.ProductService.updateProduct({ title, price, image, category, description, rate }, this.productUpdate._id)
   }
 

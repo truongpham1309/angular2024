@@ -1,10 +1,10 @@
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-products-rate',
   standalone: true,
-  imports: [NgIf, NgFor],
+  imports: [CommonModule],
   templateUrl: './products-rate.component.html',
   styleUrl: './products-rate.component.css'
 })
